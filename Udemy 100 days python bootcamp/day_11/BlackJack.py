@@ -72,8 +72,7 @@ def DoubleDown(dealer,player,bet,bankroll):
         print("Push")
         ClearRound(dealer,player)
         return bankroll
-
-
+    
 def round(bankroll):
     '''One round of BlackJack'''
     bet=int(input("Your bet: "))
@@ -93,7 +92,10 @@ def round(bankroll):
                 bet+=bet 
                 bankroll=DoubleDown(dealer=dealer,player=player,bet=bet,bankroll=bankroll)
                 return bankroll                     
-    choice=input("Hit  Stay\n").lower()        
+    choice=input("Hit  Stay\n").lower()
+    if(choice!='hit' and choice!='stay'):
+        print("Invalid input.")
+        return bankroll        
     while(choice=='hit'):
         player.append(DrawCard())
         print(f"{player}   {CardValue(player)}")
@@ -107,7 +109,8 @@ def round(bankroll):
                 return bankroll   
         elif CardValue(player)>=21:
             break
-        else: choice=input("choose\nHit  Stay\n").lower()
+        else: 
+            choice=input("choose\nHit  Stay\n").lower()
     if CardValue(player)==21:
             print("BLACKJACK")
             bankroll=bankroll+(1.5*bet)
@@ -146,7 +149,7 @@ def round(bankroll):
             print(f"Balance:{bankroll}")
             ClearRound(dealer,player)
             return bankroll
-        else:
+        elif (CardValue(player)==CardValue(dealer)):
             print("Push")
             ClearRound(dealer,player)
             return bankroll
