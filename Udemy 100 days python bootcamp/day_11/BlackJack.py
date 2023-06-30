@@ -1,5 +1,6 @@
 import random
 import BlackJackUtility
+import time
 import os
 def clear_screen(): #courtesy chatgpt no idea how or why this works
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -17,7 +18,7 @@ def InitialTwo():
     for i in range(2):
         dealer.append(DrawCard())
         player.append(DrawCard())
-    print(f"Dealer: {dealer[0]}")
+    print(f"\033[1mDealer's first card: {dealer[0]}\033[0m")
     print(f"You: {player}  {CardValue(player)}")
 
 def ClearRound(dealer,player):
@@ -42,6 +43,7 @@ def CardValue(cards):
     return value
 
 def DoubleDown(dealer,player,bet,bankroll):
+    '''Executes the choice to DoubleDown on the player's bet.'''
     print(f"bet={bet}")
     player.append(DrawCard())
     print(f"player: {player}   {CardValue(player)}")
@@ -51,19 +53,19 @@ def DoubleDown(dealer,player,bet,bankroll):
                 print(dealer)
     print(f"Dealer: {dealer}  {CardValue(dealer)}")
     if CardValue(dealer)>21:
-                print("You win.")
+                print("🤑🤑🤑 You win 🤑🤑🤑")
                 bankroll=bankroll+(2*bet)
                 print(f"Balance:{bankroll}")
                 ClearRound(dealer,player)
                 return bankroll
     if(CardValue(dealer)>CardValue(player)): 
-        print("You loose.")
+        print("❌❌❌ You loose ❌❌❌")
         bankroll=bankroll-bet
         print(f"Balance:{bankroll}")
         ClearRound(dealer,player)
         return bankroll
     if(CardValue(player)>CardValue(dealer)): 
-        print("You win.")
+        print("🤑🤑🤑 You win 🤑🤑🤑")
         bankroll=bankroll+(2*bet)
         print(f"Balance:{bankroll}")
         ClearRound(dealer,player)
@@ -81,7 +83,7 @@ def round(bankroll):
         return bankroll
     InitialTwo()
     if CardValue(player)==21: 
-        print("BLACKJACK")
+        print("💎💎💎BLACKJACK💎💎💎")
         bankroll=bankroll+(1.5*bet)
         print(f"Balance:{bankroll}")
         ClearRound(dealer,player)
@@ -112,13 +114,13 @@ def round(bankroll):
         else: 
             choice=input("choose\nHit  Stay\n").lower()
     if CardValue(player)==21:
-            print("BLACKJACK")
+            print("💎💎💎BLACKJACK💎💎💎")
             bankroll=bankroll+(1.5*bet)
             print(f"Balance:{bankroll}")
             ClearRound(dealer,player)
             return bankroll
     if CardValue(player)>21:
-        print("You loose.")
+        print("❌❌❌ You loose ❌❌❌")
         print(f"Dealer: {dealer}  {CardValue(dealer)}")
         bankroll=bankroll-bet
         print(f"Balance:{bankroll}")
@@ -132,19 +134,19 @@ def round(bankroll):
         print(f"Dealer: {dealer}  {CardValue(dealer)}")
         print(f"player: {player}  {CardValue(player)}")
         if CardValue(dealer)>21:
-            print("You win.")
+            print("🤑🤑🤑 You win 🤑🤑🤑")
             bankroll=bankroll+(2*bet)
             print(f"Balance:{bankroll}")
             ClearRound(dealer,player)
             return bankroll
         if(CardValue(dealer)>CardValue(player)): 
-            print("You loose.")
+            print("❌❌❌ You loose ❌❌❌")
             bankroll=bankroll-bet
             print(f"Balance:{bankroll}")
             ClearRound(dealer,player)
             return bankroll
         if(CardValue(player)>CardValue(dealer)): 
-            print("You win.")
+            print("🤑🤑🤑 You win 🤑🤑🤑")
             bankroll=bankroll+(2*bet)
             print(f"Balance:{bankroll}")
             ClearRound(dealer,player)
@@ -172,11 +174,30 @@ def BlackJack(bankroll):
 
 dealer=[]
 player=[]
-print("Welcome to Moon casino's BlackJack.\nHere's how we play\n")
+print(BlackJackUtility.logo)
+greeting1="🌘🌗 Welcome to Moon casino's BlackJack 🌓🌒"
+for i in greeting1:
+     print(i,end='')
+     time.sleep(0.1)
+time.sleep(0.1)
+print("\nHere's how we play\n")
+time.sleep(1)
 print("BlackJack pays 3 to 2")
+time.sleep(2)
 print("Dealer must draw to 16 and stand on all 17's")
-print("Outscoring the dealer doubles your bet.")
+time.sleep(2)
+print("Outscoring the dealer wins double your bet.")
+time.sleep(2)
 print("Double down on 9, 10, and 11 to turn the tables.")
-print("\nMay the cards be in your favour\n")
-bankroll=int(input("Enter your bankroll: "))
+time.sleep(2)
+print("\n")
+greeting2="🍀🍀 May the cards be in your favour 🍀🍀"
+for i in greeting2:
+     print(i,end='')
+     time.sleep(0.01)
+#print("\n🍀🍀 May the cards be in your favour 🍀🍀\n")
+print("\n")
+time.sleep(1)
+bankroll=int(input("\nEnter your bankroll: "))
+clear_screen()
 BlackJack(bankroll)
