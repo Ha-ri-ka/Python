@@ -47,7 +47,7 @@ greeting='Welcome to \033[1mNUMBER GUESSER!\033[0m'
 for i in greeting:
     print(i,end='')
     time.sleep(0.05)
-print("\nGuess the number that I'm thinking of correctly and WIN!")
+print("\nGuess the number between 1 and 100 that I'm thinking of correctly and WIN!")
 choice='yes'
 while(choice=='yes'):
     round()
