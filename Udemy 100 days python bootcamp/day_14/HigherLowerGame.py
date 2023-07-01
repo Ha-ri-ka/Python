@@ -1,5 +1,4 @@
-import Data
-import art
+import HigherLowerUtility
 import random
 import os
 def clear_screen(): #courtesy chatgpt no idea how or why this works
@@ -9,11 +8,11 @@ def round():
     guess=answer='x'
     score=0
     while(guess==answer):
-        compare=random.choices(Data.data,k=2)
+        compare=random.choices(HigherLowerUtility.data,k=2)
         print(f"score={score}")
         print("Guess who has higher followers!")
         print(f"A-->{compare[0]['name']},{compare[0]['description'],{compare[0]['country']}}")
-        print(art.vs)
+        print(HigherLowerUtility.vs)
         print(f"B-->{compare[1]['name']},{compare[1]['description'],{compare[1]['country']}}")
         if(compare[1]['follower_count']>compare[0]['follower_count']): answer='B'
         else: answer='A'
@@ -31,7 +30,7 @@ def round():
             print(f"{compare[1]['name']}-->{compare[1]['follower_count']} million followers")
             return score
 
-print(art.logo)
+print(HigherLowerUtility.logo)
 choice='yes'
 while(choice=='yes'):
     sc=round()
