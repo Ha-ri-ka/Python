@@ -28,6 +28,7 @@ class QuizBrain:
         else:
             print("Congrats! You got a perfect score!")    
 
+
 quiz=QuizBrain()
 print("The quiz contains 10 True or False questions on several computer science concepts and the languages SQL,Python,C and java.\nGood luck!\n")
 while quiz.quesNum<len(quiz.questionList):
