@@ -11,10 +11,10 @@ torti=t.Turtle()
 torti.shape('turtle')
 t.colormode(255)
 torti.speed("fastest")
-for _ in range(45):
+for _ in range(72):
     torti.pencolor(RandomColor())
     torti.circle(radius=100)
-    torti.right(8)
+    torti.right(5)
 
     
 screen=t.Screen()
