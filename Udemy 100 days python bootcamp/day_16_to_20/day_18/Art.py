@@ -4,7 +4,7 @@ import colorgram
 artist=t.Turtle()
 artist.shape('turtle')
 t.colormode(255)
-palette=colorgram.extract('D:/python/udemy/DAY_11_TO_20/day18/20-facts-might-know-tangled.jpg',10)
+palette=colorgram.extract('[insert path of image]',10)
 colors=[]
 for i in range(len(palette)):
     colors.append(palette[i].rgb)
