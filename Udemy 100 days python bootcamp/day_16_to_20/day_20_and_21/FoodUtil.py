@@ -16,3 +16,4 @@ class food(t.Turtle):
         w=screen.window_width()
         h=screen.window_height()
         self.goto(random.randint(-w/2+20,w/2-20),random.randint(-h/2+20,h/2-20)) 
+        
