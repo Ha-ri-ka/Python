@@ -15,4 +15,4 @@ class food(t.Turtle):
     def MakeFood(self,screen):
         w=screen.window_width()
         h=screen.window_height()
-        self.goto(random.randint(-w/2+20,w/2-20),random.randint(-h/2+20,h/2-20))        
+        self.goto(random.randint(-w/2+20,w/2-20),random.randint(-h/2+20,h/2-20)) 
