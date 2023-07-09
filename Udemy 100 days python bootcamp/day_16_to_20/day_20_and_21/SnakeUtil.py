@@ -36,5 +36,4 @@ class snake:
         self.head.setheading(0)
     def moveDown(self):
         if self.head.heading()==90: return
-        self.head.setheading(-90)
-        
+        self.head.setheading(-90)        
