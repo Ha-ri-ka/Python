@@ -12,7 +12,7 @@ class ScoreBoard(t.Turtle):
         
     def addScore(self,score):
         self.clear()    
-        self.write(f"SCORE:{score}",align='Center',font=('Trebuchet MS', 15, 'normal'))
+        self.write(f"SCORE:{score}",align=ALIGNMENT,font=(FONT, 15, 'normal'))
         
     def GameOver(self):
         self.goto(0,0)
