@@ -9,8 +9,10 @@ class puck(t.Turtle):
         self.speed(10)
         self.x_move=10
         self.y_move=10
+        self.move_speed=0.1
     def reset_pos(self):
         self.goto(0,0) 
+        self.move_speed = 0.1
     def MovePuck(self):
         x=self.xcor()+self.x_move
         y=self.ycor()+self.y_move
@@ -19,6 +21,7 @@ class puck(t.Turtle):
         self.y_move*=-1
     def bounce_x(self):
         self.x_move*=-1
+        self.move_speed*= 0.9
 
 
 

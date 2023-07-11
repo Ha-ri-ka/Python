@@ -37,7 +37,7 @@ game=True
 obj.Showscore()
 score=0
 while game:
-    time.sleep(0.08) 
+    time.sleep(puck.move_speed) 
     screen.update()
     puck.MovePuck()
     if puck.ycor()>280 or puck.ycor()<-280:
