@@ -1,5 +1,5 @@
 import turtle as t
-MOVE=20
+MOVE=15
 class snake:
     def __init__(self):
         pos=(0,0)
