@@ -11,7 +11,7 @@ class ScoreBoard(t.Turtle):
         self.goto(0,270)
         self.pendown()
     def ReadFile(self):
-        with open("D:/python/udemy/DAY_11_TO_20/day20/Snake_file.txt",mode="r") as file:
+        with open("Snake_file.txt",mode="r") as file:
             contents=int(file.read())
         return contents    
     def ShowScore(self):
@@ -21,7 +21,7 @@ class ScoreBoard(t.Turtle):
 
     def reset_game(self):
         if self.score>self.ReadFile():
-            with open("D:/python/udemy/DAY_11_TO_20/day20/Snake_file.txt",mode="w+") as file:
+            with open("Snake_file.txt",mode="w+") as file:
                 file.write(str(self.score))
         self.score=0
         self.ShowScore()    
