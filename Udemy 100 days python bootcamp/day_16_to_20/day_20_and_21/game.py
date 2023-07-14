@@ -23,9 +23,8 @@ screen.onkey(key='Up',fun=snake.moveUp)
 screen.onkey(key='Right',fun=snake.moveRight)
 screen.onkey(key='Left',fun=snake.moveLeft)
 screen.onkey(key='Down',fun=snake.moveDown)
-
+ScoreBoard.ShowScore()
 game=True
-score=0
 while game:
     screen.update()
     time.sleep(0.1)    
@@ -33,13 +32,25 @@ while game:
     if snake.head.distance(food)<15:
         food.MakeFood(screen)
         snake.Extend()
-        score+=1
-        ScoreBoard.addScore(score)
+        ScoreBoard.score+=1
+        ScoreBoard.ShowScore()
     if snake.head.xcor() > x_cord-20 or snake.head.xcor() <-(x_cord-20) or snake.head.ycor() > y_cord-20 or snake.head.ycor() < -(y_cord-20):
-        game = False
-        ScoreBoard.GameOver()    
+        choice=screen.textinput(title="enter choice",prompt="Continue Playing? (y/n)").lower()
+        if choice=="y":
+            ScoreBoard.reset_game()
+            snake.resetSnake()
+            screen.listen()
+        else:
+             ScoreBoard.GameOver()
+             game=False
     for seg in snake.SnakeBody[1:]:
             if snake.head.distance(seg)<10:
-                game=False
-                ScoreBoard.GameOver()
+                choice=screen.textinput(title="enter choice",prompt="Continue Playing? (y/n)").lower()
+                if choice=="y":
+                    ScoreBoard.reset_game()
+                    snake.resetSnake()
+                    screen.listen()
+                else:
+                    ScoreBoard.GameOver()
+                    game=False
 screen.exitonclick()
