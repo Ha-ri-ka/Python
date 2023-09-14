@@ -65,9 +65,9 @@ while(choice!='off'):
     if ch=='E': choice='espresso'
     if ch=='L': choice='latte'
     if ch=='C': choice='capuccino'
-    if choice=='off':
+    if ch=='off':
         break
-    if choice=='report':
+    if ch=='report':
         report()
     else:
         available=CheckResources(choice)        
